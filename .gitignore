@@ -75,3 +75,4 @@ packages/mobile/scripts/*
 
 # Cloudflare wrangler local state/cache
 .wrangler
+.dev.vars

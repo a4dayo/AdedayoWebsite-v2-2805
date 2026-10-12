@@ -2,6 +2,7 @@ import { z } from "zod";
 import { base } from "../__core/app";
 import { db } from "../database";
 import * as schema from "../database/schema";
+import { notifyEnquiry } from "../notify";
 import { BUDGET_OPTIONS, ENGAGEMENT_TYPES, TIMELINE_OPTIONS } from "../../shared/services";
 
 const createInput = z.object({
@@ -29,6 +30,18 @@ export const enquiries = {
       })
       .returning({ id: schema.enquiries.id });
 
-    return { id: row?.id ?? null, received: true };
+    const id = row?.id ?? null;
+    await notifyEnquiry({
+      id,
+      name: input.name,
+      email: input.email.toLowerCase(),
+      organisation: input.organisation || null,
+      engagement: input.engagement,
+      budget: input.budget,
+      timeline: input.timeline,
+      message: input.message,
+    });
+
+    return { id, received: true };
   }),
 };

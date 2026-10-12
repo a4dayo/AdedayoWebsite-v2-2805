@@ -6,6 +6,10 @@ declare namespace Cloudflare {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     DB: any;
     ASSETS: { fetch(request: Request): Promise<Response> };
+    /** Secrets for enquiry emails — set in the Cloudflare dashboard. */
+    RESEND_API_KEY?: string;
+    NOTIFY_TO?: string;
+    NOTIFY_FROM?: string;
   }
 }
 interface Env extends Cloudflare.Env {}
