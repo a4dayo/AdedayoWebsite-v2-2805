@@ -1,19 +1,34 @@
-# App template
+# adedayoawojobi.com
 
-Runable copies this Bun and Turborepo project into each new sandbox.
+Dayo Awojobi's portfolio site. React + Vite front end, a small Hono/oRPC API for the
+Work With Me form, deployed as a single **Cloudflare Worker** with static assets and a
+**D1** database (`enquiries` table).
 
-The root package commands are the external contract:
+## Commands (from the repo root)
 
-- `bun run dev` starts the web app.
-- `bun run dev:desktop` and `bun run dev:mobile` start platform clients.
-- `bun run build` builds every package.
-- `bun run start` starts or restarts the production server.
-- `bun run stop` stops the production server.
-- `bun run lint` and `bun run typecheck` validate the project.
-- The `db:generate`, `db:migrate`, and `db:push` commands manage the database.
+| Command | What it does |
+|---|---|
+| `bun install` | Install dependencies |
+| `bun run dev` | Build, apply migrations to a local D1, serve on http://localhost:8787 |
+| `bun run build` | Typecheck + production build into `packages/web/dist` |
+| `bun run deploy` | Build and deploy to Cloudflare (`wrangler deploy`) |
+| `bun run db:generate` | Generate a SQL migration after editing `src/api/database/schema.ts` |
+| `bun run db:migrate:remote` | Apply pending migrations to the production D1 |
 
-Deployment tools depend on these command names. Their implementations may change, but the names must remain stable.
+## Where things live
 
-The web package owns the API, database, and shared web interface. The mobile package is an Expo client. The desktop package is an Electron shell around the web app. Services use the fixed ports defined in `__ports.cjs`, and the web health endpoint is `/api/health`.
+- Pages: `packages/web/src/web/pages/` — home, services, experience, portfolio, insights, work-with-me
+- Service lines, form options: `packages/web/src/shared/services.ts`
+- Worker entry (API + assets, www → apex redirect): `packages/web/src/worker.ts`
+- Cloudflare config: `packages/web/wrangler.jsonc`
 
-Secrets belong in the root `.env` file. Browser values must use the `VITE_` prefix. Commands prefixed with `internal:` are for template maintenance.
+## Reading enquiries
+
+Cloudflare dashboard → Storage & Databases → D1 → `adedayoawojobi` → Console:
+
+```sql
+SELECT created_at, name, email, organisation, engagement, budget, timeline, message
+FROM enquiries ORDER BY id DESC;
+```
+
+Originally scaffolded on Runable; moved to Cloudflare in October 2026.

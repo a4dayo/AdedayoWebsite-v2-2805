@@ -25,3 +25,10 @@ Runable ran out of credits mid-restructure; finished in a separate session:
 - Old Phase 1 pages (index/about/advisory/contact) removed — content lives in home/experience/services/work-with-me
 - index.html title/description/OG updated to the new positioning; og:image absolute
 - Verified: lint, typecheck, build; all pages desktop + 390px with no horizontal overflow; form submit end-to-end against a local test DB
+
+## Moved to Cloudflare — 12 Oct 2026
+- Single Worker (`packages/web/src/worker.ts`): API on /api/*, static assets + SPA fallback, www → apex 301
+- Database: Cloudflare D1 (binding `DB`), migration `packages/web/drizzle/0000_init.sql`
+- Removed Runable-only pieces: Bun server, pm2, Turso client, Runable analytics script (would have shown its debug pop-up off-platform), runkit lint → oxlint
+- Verified locally on workerd (`wrangler dev`): all pages, redirects, form → D1
+- TODO at deploy: create D1 `adedayoawojobi`, put its id in wrangler.jsonc, apply migration, attach adedayoawojobi.com + www as Worker custom domains

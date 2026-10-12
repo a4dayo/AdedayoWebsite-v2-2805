@@ -1,4 +1,11 @@
 {
-  "extends": ["./node_modules/@runablehq/runkit/oxlintrc.json"],
-  "ignorePatterns": ["dist/**", "dist-electron/**", ".expo/**", "packages/web/public/runable.js"]
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "jsx-a11y", "import"],
+  "categories": { "correctness": "error", "suspicious": "warn" },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/control-has-associated-label": "error",
+    "jsx-a11y/prefer-tag-over-role": "error"
+  },
+  "ignorePatterns": ["dist/**", "**/node_modules/**", "packages/mobile/**", "packages/desktop/**"]
 }
