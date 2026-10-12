@@ -15,6 +15,9 @@ export const enquiries = sqliteTable("enquiries", {
   organisation: text("organisation"),
   engagement: text("engagement").notNull(),
   message: text("message").notNull(),
+  /** Work With Me qualification fields (added Oct 2026; null on older rows). */
+  budget: text("budget"),
+  timeline: text("timeline"),
   createdAt: integer("created_at", { mode: "timestamp" })
     .notNull()
     .$defaultFn(() => new Date()),
