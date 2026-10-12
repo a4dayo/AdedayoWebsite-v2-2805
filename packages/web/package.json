@@ -10,7 +10,7 @@
     "build": "tsc -b && vite build",
     "typecheck": "tsc -b",
     "preview": "vite build && wrangler dev",
-    "deploy": "vite build && wrangler deploy",
+    "deploy": "vite build && wrangler d1 migrations apply DB --remote && wrangler deploy",
     "db:generate": "drizzle-kit generate",
     "db:migrate:local": "wrangler d1 migrations apply DB --local",
     "db:migrate:remote": "wrangler d1 migrations apply DB --remote",

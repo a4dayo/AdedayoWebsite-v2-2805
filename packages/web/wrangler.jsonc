@@ -14,7 +14,7 @@
     {
       "binding": "DB",
       "database_name": "adedayoawojobi",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "database_id": "f660dc36-e7c8-4cf3-8e57-87abace81a80",
       "migrations_dir": "drizzle"
     }
   ],
