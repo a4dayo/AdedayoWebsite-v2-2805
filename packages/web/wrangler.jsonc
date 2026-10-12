@@ -18,5 +18,9 @@
       "migrations_dir": "drizzle"
     }
   ],
+  "routes": [
+    { "pattern": "adedayoawojobi.com", "custom_domain": true },
+    { "pattern": "www.adedayoawojobi.com", "custom_domain": true }
+  ],
   "observability": { "enabled": true }
 }
