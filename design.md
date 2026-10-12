@@ -1,5 +1,20 @@
 # adedayoawojobi.com — Design System
 
+## Approved restructure — October 2026
+
+- Navigation: Home, Services, Experience & Case Studies, Portfolio, Insights, Work With Me.
+- Keep Quiet Authority: warm white, Instrument Serif / Sans, asymmetric columns and hairline lists.
+- Introduce the supplied Dayo Awojobi logo, unaltered, in header and footer. Its orange becomes the accent: brand orange #CB7747, accessible text/button variant #A34D25. Retire the forest-green accent; retain dark neutral ink.
+- Home positioning expands to business clarity, business models, product-to-market, fintech strategy and venture building, backed by the existing verified operating record.
+- Services: six named productised engagements supplied by Dayo. Describe scope and outputs, but do not invent pricing, fixed durations or contractual promises.
+- Portfolio: Bankeasy (current), payZeep (previous), Motocare, Kub.Icu, TabPay. Do not imply an exit from payZeep or fabricate results/status for the other three.
+- Experience incorporates About and adds selected outcome-led case studies, separate from the startup portfolio.
+- Insights links to supplied writing; no invented articles, newsletter signup or scraped full-text republication.
+- Work With Me uses the existing enquiry API with added budget and timeline qualification fields.
+- Redirect /about to /experience, /advisory to /services and /contact to /work-with-me.
+
+The historical decisions below are retained for provenance; this approved restructure supersedes their palette, hero, navigation and advisory-tier choices.
+
 **Direction:** "Quiet Authority"
 **Subject:** Adedayo (Dayo) Awojobi — Nigerian fintech operator, independent since Aug 2026
 **Audiences:** VCs, tech founders, corporate organisations, boards

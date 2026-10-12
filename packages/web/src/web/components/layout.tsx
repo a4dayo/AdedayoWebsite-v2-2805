@@ -2,11 +2,13 @@ import { useState, type ReactNode } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 
-// Phase 1 nav. /ventures and /writing join once those pages ship.
 const NAV = [
-  { href: "/about", label: "About" },
-  { href: "/advisory", label: "Advisory" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/experience", label: "Experience & Case Studies" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/insights", label: "Insights" },
+  { href: "/work-with-me", label: "Work With Me" },
 ];
 
 function Nav() {
@@ -16,18 +18,19 @@ function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-hairline bg-warm/90 backdrop-blur-sm">
       <div className="shell flex h-16 items-center justify-between md:h-20">
-        <Link to="/" className="t-label !tracking-[0.2em] text-ink hover:opacity-60">
-          Adedayo Awojobi
+        <Link to="/" aria-label="Dayo Awojobi — Home" className="shrink-0 hover:opacity-80">
+          <img src="/images/dayo-logo.png" alt="Dayo Awojobi" className="h-auto w-[175px] lg:w-[190px]" />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-5 xl:gap-6 lg:flex">
           {NAV.map((item) => {
             const active = location === item.href || location.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
                 to={item.href}
-                className={`text-sm transition-colors ${
+                aria-current={active ? "page" : undefined}
+                className={`whitespace-nowrap text-[12px] transition-colors ${
                   active ? "text-forest" : "text-graphite hover:text-ink"
                 }`}
               >
@@ -40,7 +43,7 @@ function Nav() {
         <button
           type="button"
           aria-label={open ? "Close menu" : "Open menu"}
-          className="text-ink md:hidden"
+          className="text-ink lg:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X size={20} /> : <Menu size={20} />}
@@ -48,7 +51,7 @@ function Nav() {
       </div>
 
       {open && (
-        <div className="border-t border-hairline md:hidden">
+        <div className="border-t border-hairline lg:hidden">
           <nav className="shell flex flex-col py-4">
             {NAV.map((item) => (
               <Link
@@ -73,6 +76,7 @@ function Footer() {
       <div className="shell py-14 md:py-20">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
+            <Link to="/" aria-label="Dayo Awojobi — Home"><img src="/images/dayo-logo.png" alt="Dayo Awojobi" className="mb-7 w-[210px]" /></Link>
             <p className="t-sub max-w-[20ch]">
               Good ideas deserve the operating system to become real.
             </p>
@@ -107,7 +111,7 @@ function Footer() {
         <hr className="rule my-10" />
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <p className="t-label">© {new Date().getFullYear()} Adedayo Awojobi</p>
-          <p className="t-label">Independent · Advisory · Board</p>
+          <p className="t-label">Strategy · Product · Venture Building</p>
         </div>
       </div>
     </footer>

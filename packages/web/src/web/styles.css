@@ -34,6 +34,7 @@
   --color-ink: var(--ink);
   --color-warm: var(--warm-white);
   --color-forest: var(--forest);
+  --color-brand-orange: var(--brand-orange);
   --color-graphite: var(--graphite);
   --color-hairline: var(--hairline);
 
@@ -46,7 +47,8 @@
 
   --ink: #0f1b14;
   --warm-white: #faf9f6;
-  --forest: #1c4a2a;
+  --forest: #a34d25;
+  --brand-orange: #cb7747;
   --graphite: #4a5551;
   --hairline: #e3e0d9;
 
