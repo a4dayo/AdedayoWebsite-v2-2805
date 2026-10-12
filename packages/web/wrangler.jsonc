@@ -18,6 +18,8 @@
       "migrations_dir": "drizzle"
     }
   ],
+  // Keep dashboard-set variables (e.g. NOTIFY_TO) across git deploys
+  "keep_vars": true,
   "workers_dev": true,
   "preview_urls": true,
   "routes": [
